@@ -96,7 +96,13 @@ body.notes .note{display:block}
 .btn-line{border:1px solid var(--ink);background:transparent;color:var(--ink);padding:13px 18px;border-radius:2px;font-weight:600;font-size:15px;text-decoration:none}
 .map{background:var(--card);border:1px solid var(--line);padding:10px;min-width:0}
 .map svg{display:block;width:100%;height:auto}
-.map .pin text{font-family:var(--f-body)}
+.route-pic{position:relative;margin:0;min-width:0;border:1px solid var(--line);overflow:hidden;background:var(--card)}
+.route-pic img{display:block;width:100%;height:auto}
+.stop{position:absolute;transform:translate(-50%,calc(-100% - 12px));background:rgba(255,255,255,.93);color:#16262B;border-radius:6px;padding:5px 9px;font-size:13px;font-weight:700;line-height:1.25;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.stop small{display:block;font-weight:500;font-size:11px;color:#56676A}
+.stop.low{transform:translate(-50%,-50%)}
+.stop.known{box-shadow:0 0 0 2px #2295D7,0 2px 10px rgba(0,0,0,.25)}
+@media (max-width:560px){.stop{font-size:10.5px;padding:3px 6px;transform:translate(-50%,calc(-100% - 8px))}.stop small{display:none}}
 
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));border-bottom:1px solid var(--line)}
 .facts div{padding:18px 16px;border-right:1px solid var(--line)}
@@ -217,19 +223,12 @@ footer .tbf b{color:var(--tb-blue)}
       </div>
       <div class="note" data-n="1" data-i18n="n1">The association offers a tool, not just a list of addresses: guests book a whole route across its member hotels.</div>
     </div>
-    <div class="map" role="img" aria-label="Map of the four member houses">
-      <svg viewBox="0 0 520 380">
-        <rect width="520" height="380" fill="var(--land)"/>
-        <path d="M0 330 C90 280 160 320 240 270 C310 228 380 290 520 240 L520 380 L0 380Z" fill="var(--ridge)"/>
-        <path d="M282 92 C310 70 360 76 392 92 C420 106 452 96 480 110 C496 122 478 140 452 136 C424 132 406 146 380 152 C352 160 326 148 312 132 C298 118 276 112 282 92Z" fill="var(--water)"/>
-        <path d="M372 118 L324 104 L130 156 L232 318" fill="none" stroke="var(--gold)" stroke-width="3" stroke-dasharray="7 7" stroke-linecap="round"/>
-        <g class="pin"><circle cx="372" cy="118" r="11" fill="var(--tb-blue)"/><text x="372" y="122.5" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text><text x="388" y="170" font-size="14" font-weight="700" fill="var(--ink)">Example Hotel</text><text x="388" y="187" font-size="12" fill="var(--muted)">Vitznau</text></g>
-        <g class="pin"><circle cx="324" cy="104" r="10" fill="var(--lake)"/><text x="324" y="108.5" text-anchor="middle" font-size="12" font-weight="700" fill="var(--paper)">2</text><text x="250" y="60" font-size="14" font-weight="700" fill="var(--ink)">Hotel Demoblick</text><text x="250" y="77" font-size="12" fill="var(--muted)">Weggis</text></g>
-        <g class="pin"><circle cx="130" cy="156" r="10" fill="var(--lake)"/><text x="130" y="160.5" text-anchor="middle" font-size="12" font-weight="700" fill="var(--paper)">3</text><text x="40" y="190" font-size="14" font-weight="700" fill="var(--ink)">Drei Demokönige</text><text x="40" y="207" font-size="12" fill="var(--muted)">Entlebuch</text></g>
-        <g class="pin"><circle cx="232" cy="318" r="10" fill="var(--lake)"/><text x="232" y="322.5" text-anchor="middle" font-size="12" font-weight="700" fill="var(--paper)">4</text><text x="250" y="346" font-size="14" font-weight="700" fill="var(--ink)">Hotel Demohorn</text><text x="250" y="363" font-size="12" fill="var(--muted)">Hasliberg</text></g>
-        <text x="420" y="66" font-size="12" font-style="italic" fill="var(--muted)" data-i18n="map_lake">Lake Lucerne</text>
-      </svg>
-    </div>
+    <figure class="route-pic">
+      <img src="route.jpeg" alt="Route from a snowy alpine peak via a golf course to a historic town on the lake" width="1600" height="1195">
+      <span class="stop" style="left:24.4%;top:24.6%">Hotel Demohorn<small data-i18n="stop1">Alps · Hasliberg</small></span>
+      <span class="stop low" style="left:26%;top:80%">Drei Demokönige<small data-i18n="stop2">Golf &amp; biosphere · Entlebuch</small></span>
+      <span class="stop known" style="left:68.8%;top:64.4%">Example Hotel · Demoblick<small data-i18n="stop3">Lake · Vitznau &amp; Weggis</small></span>
+    </figure>
   </div>
 </header>
 
@@ -338,11 +337,11 @@ welcome:"You just saw the Example Hotel. Here it is again, as one of four member
 intro:"Demo 2 of 3: the website of a hotel association. Its members sell together, and every package can be booked right here.",
 nav_houses:"Our houses",nav_routes:"Routes",nav_tips:"Local tips",nav_join:"For hoteliers",
 kicker:"Lake Lucerne · Entlebuch · Bernese Oberland",h1:"Four houses. One journey from the lake to the Alps.",lead:"Independent hotels with character, run by their owners. Combine them into your own route, booked in one go.",
-plan:"Plan your route",meet:"Meet the houses",map_lake:"Lake Lucerne",
+plan:"Plan your route",meet:"Meet the houses",map_lake:"Lake Lucerne",stop1:"Alps · Hasliberg",stop2:"Golf & biosphere · Entlebuch",stop3:"Lake · Vitznau & Weggis",
 f1:"Member houses",f2:"Landscapes",f2v:"Lake · Biosphere · Alps",f3:"Bookings per route",f4:"Paid to",f4v:"each hotel directly",
 h_kicker:"Our houses",h_h2:"Different places, the same idea of hospitality.",h_p:"Each house sells its own packages. As members, they also offer them together.",
 known:"From demo 1",site:"Hotel website",pk:"Packages",
-hd:["24 rooms on the shore, a terrace over the water and the Rigi railway four minutes away.","On the lakeside promenade, with a garden down to the water. Meetings with a view, active days on the lake.","An old inn in the UNESCO Biosphere: moorland, cheese dairies and quiet nights.","High above the Haslital: alpine passes, snow fun in winter and a stage in the basement."],
+hd:["24 rooms on the shore, a terrace over the water and the Rigi railway four minutes away.","On the lakeside promenade, with a garden down to the water. Meetings with a view, active days on the lake.","An old inn in the UNESCO Biosphere: moorland, a golf course nearby and quiet nights.","High above the Haslital: alpine passes, snow fun in winter and a stage in the basement."],
 r_kicker:"Route ideas",r_h2:"Stay a few nights, move on, stay again.",r_p:"Two suggestions to start with. In the booking window you put together your own.",
 routes:[["Lake & peaks","5 nights",[["2 nights","Example Hotel, Vitznau: boat, Rigi, terrace"],["1 night","Drei Demokönige, Entlebuch: biosphere and cheese"],["2 nights","Hotel Demohorn, Hasliberg: alpine passes"]]],["Two lakes, one week","7 nights",[["3 nights","Hotel Demoblick, Weggis: lake and spa"],["2 nights","Drei Demokönige, Entlebuch: hiking the moors"],["2 nights","Example Hotel, Vitznau: foodie finale"]]]],
 ex:"Example route. Dates and prices in the booking window.",
@@ -365,11 +364,11 @@ welcome:"Sie kommen vom Example Hotel. Hier ist es wieder, als eines von vier Mi
 intro:"Demo 2 von 3: die Website eines Hotelverbands. Die Mitglieder verkaufen gemeinsam, und jedes Package ist direkt hier buchbar.",
 nav_houses:"Unsere Häuser",nav_routes:"Routen",nav_tips:"Insider-Tipps",nav_join:"Für Hoteliers",
 kicker:"Vierwaldstättersee · Entlebuch · Berner Oberland",h1:"Vier Häuser. Eine Reise vom See in die Alpen.",lead:"Unabhängige Hotels mit Charakter, von ihren Besitzern geführt. Kombinieren Sie sie zu Ihrer eigenen Route, in einem Schritt gebucht.",
-plan:"Route planen",meet:"Die Häuser kennenlernen",map_lake:"Vierwaldstättersee",
+plan:"Route planen",meet:"Die Häuser kennenlernen",map_lake:"Vierwaldstättersee",stop1:"Alpen · Hasliberg",stop2:"Golf & Biosphäre · Entlebuch",stop3:"See · Vitznau & Weggis",
 f1:"Mitgliedshäuser",f2:"Landschaften",f2v:"See · Biosphäre · Alpen",f3:"Buchungen pro Route",f4:"Bezahlt an",f4v:"jedes Hotel direkt",
 h_kicker:"Unsere Häuser",h_h2:"Verschiedene Orte, dieselbe Idee von Gastfreundschaft.",h_p:"Jedes Haus verkauft seine eigenen Packages. Als Mitglieder bieten sie sie auch gemeinsam an.",
 known:"Aus Demo 1",site:"Hotel-Website",pk:"Packages",
-hd:["24 Zimmer am Ufer, eine Terrasse über dem Wasser und die Rigi-Bahn in vier Minuten.","An der Seepromenade, mit Garten bis zum Wasser. Seminare mit Aussicht, aktive Tage am See.","Ein alter Gasthof in der UNESCO-Biosphäre: Moorlandschaft, Käsereien und ruhige Nächte.","Hoch über dem Haslital: Alpenpässe, Schneespass im Winter und eine Bühne im Keller."],
+hd:["24 Zimmer am Ufer, eine Terrasse über dem Wasser und die Rigi-Bahn in vier Minuten.","An der Seepromenade, mit Garten bis zum Wasser. Seminare mit Aussicht, aktive Tage am See.","Ein alter Gasthof in der UNESCO-Biosphäre: Moorlandschaft, ein Golfplatz gleich nebenan und ruhige Nächte.","Hoch über dem Haslital: Alpenpässe, Schneespass im Winter und eine Bühne im Keller."],
 r_kicker:"Routen-Ideen",r_h2:"Ein paar Nächte bleiben, weiterziehen, wieder bleiben.",r_p:"Zwei Vorschläge für den Anfang. Im Buchungsfenster stellen Sie Ihre eigene Route zusammen.",
 routes:[["See & Gipfel","5 Nächte",[["2 Nächte","Example Hotel, Vitznau: Schiff, Rigi, Terrasse"],["1 Nacht","Drei Demokönige, Entlebuch: Biosphäre und Käse"],["2 Nächte","Hotel Demohorn, Hasliberg: Alpenpässe"]]],["Zwei Seeufer, eine Woche","7 Nächte",[["3 Nächte","Hotel Demoblick, Weggis: See und Spa"],["2 Nächte","Drei Demokönige, Entlebuch: Moorwandern"],["2 Nächte","Example Hotel, Vitznau: Foodie-Finale"]]]],
 ex:"Beispielroute. Daten und Preise im Buchungsfenster.",
@@ -392,11 +391,11 @@ welcome:"Vous venez de voir l’Example Hotel. Le revoici, membre parmi quatre m
 intro:"Démo 2 sur 3 : le site d’une association hôtelière. Ses membres vendent ensemble, et chaque forfait se réserve ici même.",
 nav_houses:"Nos maisons",nav_routes:"Itinéraires",nav_tips:"Conseils locaux",nav_join:"Pour les hôteliers",
 kicker:"Lac des Quatre-Cantons · Entlebuch · Oberland bernois",h1:"Quatre maisons. Un voyage du lac aux Alpes.",lead:"Des hôtels indépendants avec du caractère, tenus par leurs propriétaires. Combinez-les en votre propre itinéraire, réservé en une fois.",
-plan:"Planifier l’itinéraire",meet:"Découvrir les maisons",map_lake:"Lac des Quatre-Cantons",
+plan:"Planifier l’itinéraire",meet:"Découvrir les maisons",map_lake:"Lac des Quatre-Cantons",stop1:"Alpes · Hasliberg",stop2:"Golf & biosphère · Entlebuch",stop3:"Lac · Vitznau & Weggis",
 f1:"Maisons membres",f2:"Paysages",f2v:"Lac · Biosphère · Alpes",f3:"Réservations par itinéraire",f4:"Payé à",f4v:"chaque hôtel directement",
 h_kicker:"Nos maisons",h_h2:"Des lieux différents, la même idée de l’accueil.",h_p:"Chaque maison vend ses propres forfaits. En tant que membres, elles les proposent aussi ensemble.",
 known:"Vu en démo 1",site:"Site de l’hôtel",pk:"Forfaits",
-hd:["24 chambres au bord de l’eau, une terrasse sur le lac et le train du Rigi à quatre minutes.","Sur la promenade du lac, avec un jardin jusqu’à l’eau. Séminaires avec vue, journées actives sur le lac.","Une ancienne auberge dans la biosphère UNESCO : tourbières, fromageries et nuits calmes.","Au-dessus du Haslital : cols alpins, plaisirs de la neige en hiver et une scène au sous-sol."],
+hd:["24 chambres au bord de l’eau, une terrasse sur le lac et le train du Rigi à quatre minutes.","Sur la promenade du lac, avec un jardin jusqu’à l’eau. Séminaires avec vue, journées actives sur le lac.","Une ancienne auberge dans la biosphère UNESCO : tourbières, un golf tout proche et nuits calmes.","Au-dessus du Haslital : cols alpins, plaisirs de la neige en hiver et une scène au sous-sol."],
 r_kicker:"Idées d’itinéraires",r_h2:"Rester quelques nuits, repartir, rester encore.",r_p:"Deux suggestions pour commencer. Dans la fenêtre de réservation, vous composez le vôtre.",
 routes:[["Lac & sommets","5 nuits",[["2 nuits","Example Hotel, Vitznau : bateau, Rigi, terrasse"],["1 nuit","Drei Demokönige, Entlebuch : biosphère et fromage"],["2 nuits","Hotel Demohorn, Hasliberg : cols alpins"]]],["Deux rives, une semaine","7 nuits",[["3 nuits","Hotel Demoblick, Weggis : lac et spa"],["2 nuits","Drei Demokönige, Entlebuch : randonnée dans les tourbières"],["2 nuits","Example Hotel, Vitznau : finale gourmande"]]]],
 ex:"Itinéraire d’exemple. Dates et prix dans la fenêtre de réservation.",
@@ -419,11 +418,11 @@ welcome:"Você acabou de ver o Example Hotel. Aqui está ele de novo, como uma d
 intro:"Demo 2 de 3: o site de uma associação de hotéis. Os associados vendem juntos, e cada pacote pode ser reservado aqui mesmo.",
 nav_houses:"Nossas casas",nav_routes:"Roteiros",nav_tips:"Dicas locais",nav_join:"Para hoteleiros",
 kicker:"Lago dos Quatro Cantões · Entlebuch · Oberland Bernês",h1:"Quatro casas. Uma viagem do lago aos Alpes.",lead:"Hotéis independentes, com personalidade, administrados pelos donos. Combine-os no seu próprio roteiro, reservado de uma vez.",
-plan:"Planejar o roteiro",meet:"Conhecer as casas",map_lake:"Lago dos Quatro Cantões",
+plan:"Planejar o roteiro",meet:"Conhecer as casas",map_lake:"Lago dos Quatro Cantões",stop1:"Alpes · Hasliberg",stop2:"Golfe & biosfera · Entlebuch",stop3:"Lago · Vitznau & Weggis",
 f1:"Casas associadas",f2:"Paisagens",f2v:"Lago · Biosfera · Alpes",f3:"Reservas por roteiro",f4:"Pago a",f4v:"cada hotel, direto",
 h_kicker:"Nossas casas",h_h2:"Lugares diferentes, a mesma ideia de hospitalidade.",h_p:"Cada casa vende os seus próprios pacotes. Como associadas, elas também os oferecem juntas.",
 known:"Visto na demo 1",site:"Site do hotel",pk:"Pacotes",
-hd:["24 quartos à beira do lago, um terraço sobre a água e o trem do Rigi a quatro minutos.","Na orla do lago, com jardim até a água. Eventos com vista, dias ativos no lago.","Uma antiga pousada na biosfera da UNESCO: charcos, queijarias e noites tranquilas.","No alto do Haslital: passos alpinos, diversão na neve no inverno e um palco no porão."],
+hd:["24 quartos à beira do lago, um terraço sobre a água e o trem do Rigi a quatro minutos.","Na orla do lago, com jardim até a água. Eventos com vista, dias ativos no lago.","Uma antiga pousada na biosfera da UNESCO: charcos, um campo de golfe ao lado e noites tranquilas.","No alto do Haslital: passos alpinos, diversão na neve no inverno e um palco no porão."],
 r_kicker:"Ideias de roteiro",r_h2:"Ficar algumas noites, seguir viagem, ficar de novo.",r_p:"Duas sugestões para começar. Na janela de reserva você monta o seu.",
 routes:[["Lago & montanhas","5 noites",[["2 noites","Example Hotel, Vitznau: barco, Rigi, terraço"],["1 noite","Drei Demokönige, Entlebuch: biosfera e queijo"],["2 noites","Hotel Demohorn, Hasliberg: passos alpinos"]]],["Duas margens, uma semana","7 noites",[["3 noites","Hotel Demoblick, Weggis: lago e spa"],["2 noites","Drei Demokönige, Entlebuch: trilhas nos charcos"],["2 noites","Example Hotel, Vitznau: final gastronômico"]]]],
 ex:"Roteiro de exemplo. Datas e preços na janela de reserva.",
