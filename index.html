@@ -187,7 +187,7 @@ footer .tbf b{color:var(--tb-blue)}
   <div class="wrap">
     <a class="tb-brand" href="https://toubacko.com" target="_blank" rel="noopener"><span class="tb-word">Tou<b>backo</b></span><span class="tb-pill" data-i18n="pill">Live demo</span></a>
     <nav class="steps" aria-label="Demo series">
-      <a href="../hotel-demo/"><span>1</span><i data-i18n="st1" style="font-style:normal">Hotel</i></a>
+      <a href="https://hotel.toubacko.com/"><span>1</span><i data-i18n="st1" style="font-style:normal">Hotel</i></a>
       <a href="#" aria-current="page"><span>2</span><i data-i18n="st2" style="font-style:normal">Association</i></a>
       <a href="https://toubacko.com/be-inspired/localHeroes.html" target="_blank" rel="noopener"><span>3</span><i data-i18n="st3" style="font-style:normal">Local Hero</i></a>
     </nav>
@@ -454,7 +454,7 @@ function render(){
     <article class="house${h[2]?" known":""}">
       <div class="house-top"><span class="house-num">${i+1}</span>${h[2]?`<span class="badge">${t.known}</span>`:""}</div>
       <div class="house-body"><div class="where">${h[1]}</div><h3>${h[0]}</h3><p>${t.hd[i]}</p>
-        <div class="links"><button data-open="${h[2]?"hotel":"group"}">${t.pk}</button>${h[2]?`<a href="../hotel-demo/">${t.site} →</a>`:""}</div></div>
+        <div class="links"><button data-open="${h[2]?"hotel":"group"}">${t.pk}</button>${h[2]?`<a href="https://hotel.toubacko.com/">${t.site} →</a>`:""}</div></div>
     </article>`).join("");
   document.getElementById("routeList").innerHTML=t.routes.map(r=>`
     <article class="route"><div class="len">${r[1]}</div><h3>${r[0]}</h3>
